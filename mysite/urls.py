@@ -1,30 +1,38 @@
 """mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+	https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+	1. Add an import:  from my_app import views
+	2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+	1. Add an import:  from other_app.views import Home
+	2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+	1. Import the include() function: from django.urls import include, path
+	2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
 
 from . import views
 
+from products.views import ProductListView
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index, name='index'), ##funcion recibe 2 argumentos, direccion vacia va a index
-    path('users/login', views.login_view, name='login'),
-    path('users/logout', views.logout_view, name='logout'),
-    path('users/register', views.register, name='register'),
-    path('about', views.about, name='about'),
-    path('search', views.search, name='search'),
-    path('item', views.item, name='item'),
+	path('', ProductListView.as_view(), name='index'), ##funcion recibe 2 argumentos, direccion vacia va a index
+	path('users/login', views.login_view, name='login'),
+	path('users/logout', views.logout_view, name='logout'),
+	path('users/register', views.register, name='register'),
+	path('admin/', admin.site.urls),
+
+	path('products/', include('products.urls')),
+	#products/:id
+	path('about', views.about, name='about'),
+	path('search', views.search, name='search'),
+	
 ]

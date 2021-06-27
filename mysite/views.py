@@ -9,22 +9,25 @@ from django.contrib.auth import logout
 
 from django.contrib.auth.models import User
 
+from products.models import Product
+
 from .forms import RegisterForm
 
+
+
 def index(request):
+    products = Product.objects.all().order_by('-id')
     return render(request, 'index.html',{
         #context (un diccionario, dinamicidad)
-        'title':'🌘 Killari - Inicio',
+        'title':'Killari - Inicio',
         'message': 'Listado de productos',
-        'products':[
-            # {'title', 'price', 'stock'}
-            {'title': 'Playera', 'price': 120, 'stock':True},
-            {'title': 'Pantalón', 'price': 120, 'stock':True},
-            {'title': 'Camisa', 'price': 120, 'stock':False},
-        ]
+        'products': products,
     })
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+        
     if request.method == 'POST':
         username = request.POST.get('username') 
         #es un diccionario, utilizamos metodo get
@@ -40,7 +43,7 @@ def login_view(request):
 
 
     return render(request, 'users/login.html',{
-       'title':'🌘 Killari - Login',
+       'title':'Killari - Login',
     })
 
 def logout_view(request):
@@ -49,6 +52,9 @@ def logout_view(request):
     return redirect('login')
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('index')
+
     form = RegisterForm(request.POST or None)
 
     if request.method == 'POST' and form.is_valid():
@@ -61,7 +67,7 @@ def register(request):
             return redirect('index')
     
     return render(request, 'users/register.html', {
-        'title':'🌘 Killari - Registro',
+        'title':'Killari - Registro',
         'form': form,
     })
 
