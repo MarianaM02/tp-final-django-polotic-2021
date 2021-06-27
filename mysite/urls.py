@@ -22,4 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'), ##funcion recibe 2 argumentos, direccion vacia va a index
     path('users/login', views.login_view, name='login'),
+    path('users/logout', views.logout_view, name='logout'),
+    path('users/register', views.register, name='register'),
+    path('about', views.about, name='about'),
+    path('search', views.search, name='search'),
+    path('item', views.item, name='item'),
 ]

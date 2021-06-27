@@ -1,39 +1,31 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
-    <title>{{ title }}</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>{{ message }}</h1>
+{% extends 'base.html' %}
 
-          {# comentario django #}
 
-          <ul class="list-group">
-            {% for product in products %}
-            <li class="list-group-item">
-              {{ product.title }} {% if product.stock %}
-              <span class="text-success">Disponible</span>
-              {% else %}
-              <span class="text-danger">No Disponible</span>
-              {% endif %}
-            </li>
+{% block header %}
+	{% include 'header.html' %}
+{% endblock header %}
 
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </body>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-</html>
+{% block content %}
+
+	<div class="col">
+		<h1>{{ message }}</h1>
+
+		{# comentario django #}
+
+		<ul class="list-group">
+			{% for product in products %}
+			<li class="list-group-item">
+				{{ product.title }} {% if product.stock %}
+				<span class="text-success">Disponible</span>
+				{% else %}
+				<span class="text-danger">No Disponible</span>
+				{% endif %}
+			</li>
+
+			{% endfor %}
+		</ul>
+	</div>
+
+{% endblock %}
+
