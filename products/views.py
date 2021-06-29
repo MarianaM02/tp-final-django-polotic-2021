@@ -17,6 +17,7 @@ class ProductListView(ListView):
 
     return context
 
-class ProductDetailView(DetailView):#busqueda por id
+class ProductDetailView(DetailView):
+  #busqueda por id
   model = Product
   template_name = 'products/product.html'
