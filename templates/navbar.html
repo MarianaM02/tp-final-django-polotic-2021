@@ -62,7 +62,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
-    <a href="{% url 'index' %}" class="navbar-brand">Killari</a>
+    <a href="{% url 'index' %}" class="navbar-brand"><img src="media/logo_k_blanco.png" alt="Killari Logo"> </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -79,7 +79,7 @@
             Productos
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Corpiños</a></li>
+            <li><a class="dropdown-item" href="#">Soutiens</a></li>
             <li><a class="dropdown-item" href="#">Bombachas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Conjuntos</a></li>
@@ -98,10 +98,7 @@
           </li>
         {% endif %}
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Busca en el sitio" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Buscar</button>
-      </form>
+      {% include 'products/snippets/search.html' with query=query%}
     </div>
   </div>
 </nav>
