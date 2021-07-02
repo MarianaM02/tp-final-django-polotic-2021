@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block header %}
 	{% include 'header.html' %}
-{% endblock header %}
+{% endblock %}
 
 {% block content %}
-
-{% endblock content %}
+	
+	<section class="py-5">
+		<div class="container px-4 px-lg-5 my-5">
+    	<h1>Sobre nosotras</h1>
+      <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6">
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora cumque quis aliquam nam, laboriosam suscipit? Dolorum exercitationem aut accusantium obcaecati maxime, vero expedita possimus nostrum sed! Harum eius quidem impedit?</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis perspiciatis voluptatum id voluptas consequuntur, harum amet voluptatem quos est quam expedita hic. Ratione sapiente nesciunt eveniet illum voluptate reprehenderit tempore!</p>
+        </div>
+        <div class="col-md-6">
+          <img
+            class="card-img-top mb-5 mb-md-0"
+            src="{% static 'images/about.jpg' %}"
+            alt="Imagen"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

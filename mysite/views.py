@@ -74,18 +74,6 @@ def register(request):
 
 def about(request):
     return render(request, 'about.html', {
-        'title':'🌘 Killari - Sobre Nosotras',
-    
-    })
-
-def search(request):
-    return render(request, 'search.html', {
-        'title':'🌘 Killari - Resultado de la Búsqueda',
-    
-    })
-
-def item(request):
-    return render(request, 'item.html', {
-        'title':'🌘 Killari - Producto',
+        'title':'Killari - Sobre Nosotras',
     
     })
