@@ -1,9 +1,15 @@
-<form action="{% url 'carts:add' %}" method="post">
+<form action="{% url 'carts:add' %}" method="post" class="form">
   {% csrf_token %}
+  <div class="form-row">
+    <input class="text-center mb-2 col-md-2" id="quantity" type="num" value="1" />
 
-  <input type="hidden" name="product_id" value="{{ product.id }}">
-  <button type="submit" class="btn btn-outline-dark flex-shrink-0">
-    <i class="bi-cart-fill me-1"></i>
-    Agregar al carrito
-  </button> 
+    <input type="hidden" name="product_id" value="{{ product.id }}" class="form-group mb-2" >
+    <button type="submit" class="btn btn-outline-dark flex-shrink-0 ml-2">
+      <i class="bi-cart-fill me-2"></i>
+      Agregar al carrito
+    </button> 
+  </div>
+  
+
+  
 </form>

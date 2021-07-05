@@ -4,39 +4,52 @@
 {% block content %}
 
   {% if cart.products.exists %}
-    <div class="col-8 table-responsive">
-      <table class="table table-hover align-middle">
-        <thead class="table-dark align-middle">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for product in cart.products.all %}
+    <div class="row">
+      <div class="col-md-8 table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-dark align-middle">
             <tr>
-              <th>{{ forloop.counter }}</th>
-              <th>
-                {% if product.image %}
-                  <img src="{{ product.image.url }}" alt="Imagen del Producto" width="60" height="60">
-                {% endif %}
-              </th>
-              <th>
-                <a href="{% url 'product' product.slug %}" class="link-secondary">{{ product.title }}</a>
-                {% include 'carts/snippets/remove.html' %}
-              </th>
-              <th>1</th>
-              <th><span class="font-weight-bold">{{ product.price | price_format }} </span></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
             </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <div class="col">
-    
+          </thead>
+          <tbody>
+            {% for product in cart.products.all %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <th>
+                  {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="Imagen del Producto" width="60" height="60">
+                  {% endif %}
+                </th>
+                <th>
+                  <a href="{% url 'product' product.slug %}" class="link-secondary">{{ product.title }}</a>
+                  {% include 'carts/snippets/remove.html' %}
+                </th>
+                <th>1</th>
+                <th><span class="font-weight-bold">{{ product.price | price_format }} </span></th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">
+              <h6 class="font-weight-bold">Subtotal({{ cart.products.count }}): {{ cart.subtotal | price_format }}</h6>
+            </div>
+            <div class="mt-2">
+              <a href="#" class="btn btn-outline-dark flex-shrink-0">
+              <i class="bi-cart-fill me-1"></i> Proceder al Pago
+            </a>
+          </div> 
+          </div>
+        </div>
+      </div>
     </div>
   {% else %}
     <div class="col">

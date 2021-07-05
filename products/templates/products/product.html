@@ -19,13 +19,13 @@
             {{ product.description }}
           </p>
           <div class="d-flex">
-            <input
+            {% comment %} <input
               class="form-control text-center me-3"
               id="inputQuantity"
               type="num"
               value="1"
               style="max-width: 3rem"
-            />
+            /> {% endcomment %}
 
             {% include 'carts/snippets/add.html' %}
             
