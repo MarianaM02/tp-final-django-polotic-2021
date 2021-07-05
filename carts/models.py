@@ -1,11 +1,16 @@
+import uuid
+
 from django.db import models
 
 from users.models import User
 from products.models import Product
 
+from django.db.models.signals import pre_save
 
-# Create your models here.
+# Carrito que no necesita login:
 class Cart(models.Model):
+
+  cart_id = models.CharField(max_length=100, null=False, blank=False, unique=True)
   #relacion uno a muchos
   user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
   #muchos a muchos
@@ -15,6 +20,10 @@ class Cart(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
-    return ''
+    return self.cart_id
 
-  
+def set_cart_id(sender, instance, *arg, **kargs):
+  if not instance.cart_id:
+    instance.cart_id = str(uuid.uuid4())
+
+pre_save.connect(set_cart_id, sender=Cart)

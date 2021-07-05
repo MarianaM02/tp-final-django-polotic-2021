@@ -15,12 +15,14 @@ urlpatterns = [
 	path('users/login', views.login_view, name='login'),
 	path('users/logout', views.logout_view, name='logout'),
 	path('users/register', views.register, name='register'),
-	path('admin/', admin.site.urls),
+	path('about', views.about, name='about'),
 
+	path('admin/', admin.site.urls),
 	path('products/', include('products.urls')),
 	#products/:id
-	path('about', views.about, name='about'),
+	path('carts/', include('carts.urls')),
 	
+
 ]
 
 if settings.DEBUG:
