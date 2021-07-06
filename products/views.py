@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from .models import Product
+from .forms import NewProductForm
 
 # Create your views here.
 class ProductListView(ListView):
@@ -38,3 +39,26 @@ class ProductSearchListView(ListView):
     context['query'] = self.query()
     context['count'] = context['product_list'].count()
     return context
+
+def new(request):
+  context = {}
+  
+  if not request.user.is_superuser:
+    return redirect('index')
+
+  form = NewProductForm(request.POST, request.FILES)
+
+  if request.method == 'POST' and form.is_valid():
+    title = form.data.get('title')
+    description = form.data.get('description')
+    price = form.data.get('price')
+    product = Product(title=title, image=request.FILES['image'], thumbnail=request.FILES['thumbnail'], description=description, price=price)
+    product = form.save()
+    
+    if product:
+      messages.success(request, 'Producto creado exitosamente')
+      return redirect('index')
+  
+  context['form'] = form
+
+  return render(request, 'products/new.html', context)

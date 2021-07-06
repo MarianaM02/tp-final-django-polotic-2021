@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="row justify-content-center mb-5">	
+    <div class="col-6 mb-5">
+      <h2>Nuevo Producto</h2>
+
+      {# formulario #}
+      <form action="" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+          <div class="form-group mb-3">
+            <div class="form-label">
+            {{ field.label_tag }}</div>
+            <div class="">
+            {{ field }}</div>
+
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <button class="btn btn-primary">Añadir Producto</button>
+      </form>
+    </div>
+	</div>
+
+{% endblock %}

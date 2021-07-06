@@ -30,9 +30,6 @@
             </a>
           </li>
         </ul>
-      {% else %}
-
-      
       {% endif %}
       
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -69,6 +66,12 @@
             <a href="{{ register }}" class="nav-link {% if request.path == register %}active{% endif %}" aria-current="page"><span class="fas fa-user-plus"></span> Registrate</a>
           </li>
         {% endif %}
+        {% if user.is_superuser %}
+          <li class="nav-item">
+            <a href="{% url 'new' %}" class="nav-link"><i class="fas fa-plus-square"></i> NUEVO PRODUCTO</a>
+          </li>
+        {% endif %}
+
       </ul>
       <!-- Barra de busqueda -->
       {% include 'products/snippets/search.html' with query=query %}
