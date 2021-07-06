@@ -1,0 +1,67 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Bralette 'Frida'",
+        "description": "Bralette 'Frida'",
+        "price": "0.00",
+        "slug": "bralette-frida",
+        "image": "products/img-BraletteFrida__600_FUZTKxh.jpg",
+        "thumbnail": "products/thumbnail-BraletteFrida__450_300_XhqKOFg.jpg",
+        "created_at": "2021-07-06T02:31:37.838Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Bustier 'María Elena'",
+        "description": "Bustier 'María Elena'",
+        "price": "4565.00",
+        "slug": "bustier-maria-elena",
+        "image": "products/img-BustierMaríaElena_600_d6cIarI.jpg",
+        "thumbnail": "products/thumbnail-BustierMaría_Elena_450_300_cVv60M7.jpg",
+        "created_at": "2021-07-06T02:32:05.232Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Tangas regulables 'Ana'",
+        "description": "Tangas regulables 'Ana'",
+        "price": "4678.00",
+        "slug": "tangas-regulables-ana",
+        "image": "products/img-TangasAna_600_qawpEQc.jpg",
+        "thumbnail": "products/thumbnail-TangasAna_450_300_M3L40GM.jpg",
+        "created_at": "2021-07-06T02:32:33.683Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "Culotte 'Isadora'",
+        "description": "Culotte 'Isadora'",
+        "price": "4523.00",
+        "slug": "culotte-isadora",
+        "image": "products/img-culotteIsadora_600_vWIq5Jh.jpg",
+        "thumbnail": "products/thumbnail-culotteIsadora_450_300_9FRpO19.jpg",
+        "created_at": "2021-07-06T02:33:14.349Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Vedetina 'Alfonsina'",
+        "description": "Vedetina 'Alfonsina'",
+        "price": "6321.00",
+        "slug": "vedetina-alfonsina",
+        "image": "products/img-vedetinaAlfonsina_600_abMzJjQ.jpg",
+        "thumbnail": "products/thumbnail-vedetinaAlfonsina_450_300_DGoK2ge.jpg",
+        "created_at": "2021-07-06T02:34:00.812Z"
+    }
+}
+]
