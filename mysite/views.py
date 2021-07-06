@@ -21,7 +21,6 @@ def index(request):
     return render(request, 'index.html',{
         #context (un diccionario, dinamicidad)
         'title':'Killari - Inicio',
-        'message': 'Listado de productos',
         'products': products,
     })
 
@@ -41,7 +40,6 @@ def login_view(request):
             return redirect('index')
         else:
             messages.error(request, 'Usuario o contraseña no válidos')
-
 
     return render(request, 'users/login.html',{
        'title':'Killari - Login',

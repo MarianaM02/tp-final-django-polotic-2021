@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
       <!-- Carrito -->
-      {% if not user.is_superuser %} 
+      {% if user.is_authenticated and not user.is_superuser %} 
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link {% if request.path == cart %}active{% endif %}" href="{{ cart }}">
@@ -47,10 +47,8 @@
             Productos
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Soutiens</a></li>
-            <li><a class="dropdown-item" href="#">Bombachas</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Conjuntos</a></li>
+            <li><a class="dropdown-item" href="{% url 'search' %}?q=Soutiens">Soutiens</a></li>
+            <li><a class="dropdown-item" href="{% url 'search' %}?q=Bombachas">Bombachas</a></li>
           </ul>
         </li>
 

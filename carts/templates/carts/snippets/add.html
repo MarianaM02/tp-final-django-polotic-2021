@@ -1,15 +1,16 @@
-<form action="{% url 'carts:add' %}" method="post" class="form">
+<form action="{% if  user.is_authenticated and not user.is_superuser %} {% url 'carts:add' %} {% else %} {% url 'login' %} {% endif %}" method="post" class="form">
   {% csrf_token %}
-  <div class="form-row">
-    <input class="text-center mb-2 col-md-2" id="quantity" type="num" value="1" />
-
-    <input type="hidden" name="product_id" value="{{ product.id }}" class="form-group mb-2" >
-    <button type="submit" class="btn btn-outline-dark flex-shrink-0 ml-2">
-      <i class="bi-cart-fill me-2"></i>
-      Agregar al carrito
-    </button> 
+  <input type="hidden" name="product_id" value="{{ product.id }}" class="" >
+  <div class="row">
+    <div class="col-3">
+      <input class="form-control mb-2 d-inlineblock " id="quantity" name="quantity" type="number" value="1" min="1" />
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-outline-dark flex-shrink-0 ml-2 d-inlineblock">
+        <i class="bi-cart-fill me-2"></i>
+        Agregar al carrito
+      </button> 
+    </div>
   </div>
-  
 
-  
 </form>
