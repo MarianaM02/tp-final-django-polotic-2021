@@ -13,3 +13,11 @@ https://github.com/MarianaM02/tp-final-django-polotic-2021.git
 
 **Hecho por Mariana Madeira**
 *mrn.m.92@gmail.com*
+
+---
+## Instalación local
+* Crear virtual environment ```python -m venv myvenv```
+* Correr venv (desde win PowerShell) ```.\myvenv\Scripts\Activate.ps1```
+* Instalar desde requirements.txt ```pip install -r .\requirements.txt```
+* Hacer Migraciones ```py .\manage.py migrate```
+* Correr el servidor local```py .\manage.py runserver```
